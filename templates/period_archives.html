@@ -1,11 +1,31 @@
 {% extends "base.html" %}
+{% block pagetitle %}
+  <a href="{{ SITEURL }}/">
+    <h1 class="blogTitle">{{ SITENAME }}</h1>
+  </a>
+  <p class="blogSubTitle">Archives for {{ period | reverse | join(' ') }}</p>
+{% endblock pagetitle %}
 {% block content %}
-<h1>Archives for {{ period | reverse | join(' ') }}</h1>
 
-<dl>
-{% for article in dates %}
-  <dt>{{ article.locale_date }}</dt>
-  <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
-{% endfor %}
-</dl>
+  {% for article in dates %}
+    <article>
+      <div class="row">
+        <a class="permalink" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink">{{ article.locale_date }}</a>
+        <div class="postTitle">
+          <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink"><h1 style="margin-top: 0;">{{ article.title }}</h1></a>
+        </div>
+        <div class="large-2 hide-for-small columns"></div>
+      </div>
+      <div class="row">
+        <div class="postContent">
+          {{ article.summary }}
+        </div>
+        <div class="postContent">
+          <p><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">Continue reading »</a></p>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+
 {% endblock %}
+

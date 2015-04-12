@@ -1,5 +1,13 @@
 {% extends "index.html" %}
-{% block home %}{% endblock %}
-{% block content_title %}
-<h2>{{ category }}</h2>
+{% block home %}
+  {% block title %}
+    {{ category }} | {{ SITENAME }}
+  {% endblock title %}
 {% endblock %}
+<!-- {% block content_title %}{% endblock content_title %} -->
+{% block pagetitle %}
+<a href="{{ SITEURL }}/">
+  <h1 class="blogTitle">{{ SITENAME }}</h1>
+</a>
+<p class="blogSubTitle">{{ category }}</p>
+{% endblock pagetitle %}

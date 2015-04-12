@@ -10,10 +10,12 @@
 <body>
   <header class="row">
     <div class="large-6 large-offset-3 columns">
-      <a href="{{ SITEURL }}/">
-        <h1 class="blogTitle">{{ SITENAME }}</h1>
-      </a>
-      <p class="blogSubTitle">{{ SITESUBTITLE }}</p>
+      {% block pagetitle %}
+        <a href="{{ SITEURL }}/">
+          <h1 class="blogTitle">{{ SITENAME }}</h1>
+        </a>
+        <p class="blogSubTitle">{{ SITESUBTITLE }}</p>
+      {% endblock pagetitle %}
     </div>
     <nav class="main"><a href="mailto:adam@brault.io" class="emailToMe">Email</a>
       <input type="button" onclick="(function(){var z=document.createElement('script');z.src='https://www.subtome.com/load.js';document.body.appendChild(z);})()" value="Subscribe" class="subToMe"/>
