@@ -4243,6 +4243,34 @@ body {
   font: 17px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #323232; }
 
+.photo-header {
+  width: 100%;
+  margin-bottom: 40px; }
+
+.home-header {
+  margin-top: 20px;
+  position: absolute;
+  top: 20px;
+  left: 40px; }
+
+.home-header {
+  margin-top: 20px;
+  position: absolute;
+  top: 15px;
+  left: 35px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px;
+  box-shadow: white 0 0 30px; }
+  .home-header h1 {
+    font-size: 36px;
+    margin-bottom: 0; }
+  .home-header h2 {
+    margin-top: 5px;
+    font-weight: 500; }
+  .home-header p {
+    font-weight: 500; }
+
 h1 {
   font-size: 24px; }
 
@@ -4386,6 +4414,24 @@ article + .pages {
   padding-top: 80px; }
 
 @media (max-width: 768px) {
+  .home-header br {
+    display: none; }
+
+  .home-header {
+    margin: -10px 15px 0 15px;
+    padding-bottom: 20px;
+    position: static;
+    top: auto;
+    left: auto;
+    text-shadow: rgba(255, 255, 255, 0) 0px 0px 0px;
+    border-bottom: 1px solid #eeeeee; }
+    .home-header h1 {
+      font-size: 36px;
+      margin-bottom: 0; }
+    .home-header h2 {
+      margin-top: 5px;
+      font-weight: 500; }
+
   header {
     background-color: #fafafa;
     padding: 5px 0;

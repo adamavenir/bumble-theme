@@ -1,12 +1,32 @@
 {% extends "base.html" %}
+
+{% block bodyclass %}home{% endblock bodyclass %}
+
+{% block pageheader %}
+  <img class="photo-header" src="/theme/images/katie-rtc.jpg">
+  <div class="home-header">
+    <a href="/"><h1>Hi, I'm Adam.</h1></a>
+    <h2>I love doing ambitious things <br/>with inspiring people.</h2>
+    <nav>
+      <p>You can read <a href="/about">more about me</a>, <br/><a href="/collaborators">my collaborators</a>, and <a href="/projects">our projects</a>. <br class="br"/>Some of <a href="/talks">my talks</a> are here, too.<p>
+    </nav>
+
+    {% if article %}
+    <div class="row">
+      <a class="permalink" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink">{{ article.locale_date }}</a>
+      <div class="postTitle">
+        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink"><h1 style="margin-top: 0;">{{ article.title }}</h1></a>
+      </div>
+      <div class="large-2 hide-for-small columns"></div>
+    </div>
+    {% endif %}
+  </div>
+{% endblock pageheader %}
+
 {% block content %}
 
-<!--   {% block home %}
-    <h1>This is unique home page content</h1>
-  {% endblock %} -->
-
   {% block content_title %}
-  {% endblock %}
+  {% endblock content_title %}
 
   {% for article in articles_page.object_list %}
     <article>
