@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  {% for keyword in article.keywords %}
+    <meta name="keywords" contents="{{keyword}}" />
+  {% endfor %}
+
+  {% for description in article.description %}
+    <meta name="description" contents="{{description}}" />
+  {% endfor %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" contents="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+
+  <article>
+    <div class="row">
+      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink" class="permalink">{{ article.locale_date }}</a>
+      <div class="postTitle">
+        <h1 style="margin-top: 0;">{{ article.title }}</h1>
+      </div>
+      <div class="large-2 hide-for-small columns"></div>
+    </div>
+    <div class="row">
+      <div class="postContent">{{ article.content }}</div>
+    </div>
+  </article>
+  
+{% endblock %}

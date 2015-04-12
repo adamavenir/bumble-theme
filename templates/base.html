@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+  {% block head %}
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    {% include 'head.html' %}
+  {% endblock head %}
+</head>
+
+<body>
+  <header class="row">
+    <div class="large-6 large-offset-3 columns">
+      <a href="{{ SITEURL }}/">
+        <h1 class="blogTitle">{{ SITENAME }}</h1>
+      </a>
+      <p class="blogSubTitle">{{ SITESUBTITLE }}</p>
+    </div>
+    <nav class="main"><a href="mailto:adam@brault.io" class="emailToMe">Email</a>
+      <input type="button" onclick="(function(){var z=document.createElement('script');z.src='https://www.subtome.com/load.js';document.body.appendChild(z);})()" value="Subscribe" class="subToMe"/>
+    </nav>
+  </header>
+  <nav id="menu">
+    <ul>
+      {% for title, link in MENUITEMS %}
+        <li><a href="{{ link }}">{{ title }}</a></li>
+      {% endfor %}
+      {% if DISPLAY_PAGES_ON_MENU %}
+        {% for p in PAGES %}
+          <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+        {% endfor %}
+      {% else %}
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+          {% for cat, null in categories %}
+            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+    </ul>
+  </nav>
+
+  {% block content %}
+  {% endblock %}
+
+  {% include 'footer.html' %}
+
+</body>
+</html>

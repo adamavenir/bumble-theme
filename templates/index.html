@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--   {% block home %}
+    <h1>This is unique home page content</h1>
+  {% endblock %} -->
+
+  {% block content_title %}
+  {% endblock %}
+
+  {% for article in articles_page.object_list %}
+    <article>
+      <div class="row">
+        <a class="permalink" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink">{{ article.locale_date }}</a>
+        <div class="postTitle">
+          <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink"><h1 style="margin-top: 0;">{{ article.title }}</h1></a>
+        </div>
+        <div class="large-2 hide-for-small columns"></div>
+      </div>
+      <div class="row">
+        <div class="postContent">
+          {{ article.summary }}
+        </div>
+        <div class="postContent">
+          <p><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">Continue reading »</a></p>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+
+  {% include 'pagination.html' %}
+
+{% endblock content %}
